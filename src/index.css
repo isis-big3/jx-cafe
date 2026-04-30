@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1B4332;
+  --color-forest-light: #2D6A4F;
+  --color-forest-dark: #0D2818;
+  --color-sage: #52B788;
+  --color-mint: #B7E4C7;
+  --color-cream: #F5F0E8;
+  --color-parchment: #EDE8DC;
+  --color-gold: #D4A853;
+  --font-caveat: 'Caveat', cursive;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F5F0E8;
+  color: #1B4332;
+  margin: 0;
+}
+
+h1, h2, h3, .font-caveat { font-family: 'Caveat', cursive; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.float { animation: float 3s ease-in-out infinite; }
+.wiggle { animation: wiggle 2s ease-in-out infinite; }
+.pulse-slow { animation: pulse-slow 2.5s ease-in-out infinite; }
+
+.sticker {
+  display: inline-block;
+  background: #D4A853;
+  color: #1B4332;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  transform: rotate(-3deg);
+  box-shadow: 2px 2px 0 #1B4332;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.sticker-green {
+  background: #1B4332;
+  color: #F5F0E8;
+  box-shadow: 2px 2px 0 #D4A853;
+  transform: rotate(2deg);
+}
+
+.card-tilt-l {
+  transform: rotate(-1.5deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-tilt-r {
+  transform: rotate(1.5deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-tilt-l:hover, .card-tilt-r:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 12px 32px rgba(27,67,50,0.18);
+}
+
+.underline-wavy {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #D4A853;
+  text-underline-offset: 5px;
+}
+
+.nav-link {
+  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #D4A853;
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+.nav-link:hover::after { width: 100%; }
+
+.wavy-divider {
+  overflow: hidden;
+  line-height: 0;
+}
+
+input, textarea, select {
+  font-family: 'DM Sans', sans-serif;
+}
